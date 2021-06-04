@@ -1,4 +1,4 @@
-<Project>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))" />
 
     <PropertyGroup>
@@ -6,6 +6,11 @@
             <_Parameter1>Foobar</_Parameter1>
         </AssemblyAttribute> -->
     </PropertyGroup>
+
+    <UsingTask TaskName="build.tasks.SimpleTask" AssemblyFile="$(SolutionDir)\build\obj\Debug\net5.0\build.dll"/>
+
+    <Target Name="Generate" BeforeTargets="CoreCompile">
         <Message Text="Generate Code with Build.csproj" Importance="high"/>
+        <build.tasks.SimpleTask Parameter="$(ProjectName) parameter from targets file"/>
     </Target>
 </Project>

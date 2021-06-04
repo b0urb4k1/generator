@@ -1,2 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Framework" Version="16.10.0" />
+  </ItemGroup>
 </Project>
