@@ -1,0 +1,11 @@
+<Project>
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))" />
+
+    <PropertyGroup>
+        <!-- <AssemblyAttribute Include="build.attributes.MyAttribute">
+            <_Parameter1>Foobar</_Parameter1>
+        </AssemblyAttribute> -->
+    </PropertyGroup>
+        <Message Text="Generate Code with Build.csproj" Importance="high"/>
+    </Target>
+</Project>

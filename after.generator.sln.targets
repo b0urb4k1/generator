@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <Target Name="GenerateCode" BeforeTargets="Build">
+        <Message Text="GenerateCode Target running" Importance="high"/>
+    </Target>
+    <Target Name="RunCodeAnalysis" AfterTargets="Build">
+        <Message Text="RunCodeAnalysis Target running" Importance="high"/>
+    </Target>
+</Project>

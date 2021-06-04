@@ -1,3 +1,4 @@
+using System.Reflection;
 using NUnit.Framework;
 
 namespace tests
@@ -12,6 +13,9 @@ namespace tests
         [Test]
         public void Test1()
         {
+            foreach (var attribute in Assembly.GetExecutingAssembly().CustomAttributes)
+                TestContext.WriteLine(attribute.ToString());
+
             Assert.Pass();
         }
     }

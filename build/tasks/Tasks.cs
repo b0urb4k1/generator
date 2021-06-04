@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace buildtasks
+namespace build.tasks
 {
     public class Class1
     {
