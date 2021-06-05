@@ -1,9 +1,9 @@
 <Project>
-    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"/>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))"/>
 
-    <ItemGroup>
-        <ProjectReference Include="..\build\build.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\build\build.csproj" />
+  </ItemGroup>
 
   <PropertyGroup>
     <IsPackable>false</IsPackable>
@@ -13,5 +13,10 @@
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Use MSBuildThisFileDirectory to make the path relative to the current file location -->
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\analyzer\Analyzer.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
   </ItemGroup>
 </Project>

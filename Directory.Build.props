@@ -5,8 +5,5 @@
 
     <ItemGroup>
         <!-- <OutputPath>$(SolutionDir)bin\$(Configuration)\$(Platform)</OutputPath> -->
-        <!-- <ProjectCapability Include="DynamicDependentFile" />
-        <ProjectCapability Include="DynamicFileNesting" /> -->
-        <!-- <OutputPath> -->
     </ItemGroup>
 </Project>

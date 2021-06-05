@@ -11,6 +11,6 @@
 
     <Target Name="Generate" BeforeTargets="CoreCompile">
         <Message Text="Generate Code with Build.csproj" Importance="high"/>
-        <build.tasks.SimpleTask Parameter="$(ProjectName) parameter from targets file"/>
+        <build.tasks.SimpleTask Parameter="parameter set from $(ProjectName).csproj targets file"/>
     </Target>
 </Project>
