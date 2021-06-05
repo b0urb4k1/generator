@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace tests
 {
-    public class Tests
+    public class tests
     {
         [SetUp]
         public void Setup()

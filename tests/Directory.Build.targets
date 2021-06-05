@@ -7,7 +7,7 @@
         </AssemblyAttribute> -->
     </PropertyGroup>
 
-    <UsingTask TaskName="build.tasks.SimpleTask" AssemblyFile="$(SolutionDir)\build\obj\Debug\net5.0\build.dll"/>
+    <UsingTask TaskName="build.tasks.SimpleTask" AssemblyFile="$(SolutionDir)\build\bin\Debug\net5.0\build.dll"/>
 
     <Target Name="Generate" BeforeTargets="CoreCompile">
         <Message Text="Generate Code with Build.csproj" Importance="high"/>
