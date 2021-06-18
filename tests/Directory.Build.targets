@@ -14,7 +14,14 @@
     <UsingTask TaskName="build.tasks.ScribanTask2" AssemblyFile="$(SolutionDir)build\bin\Debug\net5.0\build.dll"/>
 
     <Target Name="Generate" BeforeTargets="CoreCompile">
+        <PropertyGroup>
+            <OutputFileName>$(IntermediateOutputPath)test.g.cs</OutputFileName>
+        </PropertyGroup>
         <Message Text="Generate Code with Build.csproj" Importance="high"/>
-        <build.tasks.ScribanTask InputItems="" ScribanTemplate="test" OutputFile="test"/>
+        <build.tasks.ScribanTask InputItems="@(ScribanItem -> '$(ProjectDir)%(filename)%(extension)')" ScribanTemplate="@(ScribanTemplate -> '$(ProjectDir)%(filename)%(extension)')" OutputFile="$(OutputFileName)"/>
+		<ItemGroup>
+			<Compile Remove="$(OutputFileName)"/>
+			<Compile Include="$(OutputFileName)"/>
+		</ItemGroup>
     </Target>
 </Project>

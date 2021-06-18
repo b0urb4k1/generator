@@ -1,0 +1,9 @@
+namespace test
+{
+    public static class Names
+    {
+        {{ for item in items }}
+            public const string item{{for.index}} = @"{{ item }}";
+        {{ end }}
+    }
+}

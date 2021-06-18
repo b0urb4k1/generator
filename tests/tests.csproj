@@ -1,2 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <ScribanTemplate Include="testTemplate.scriban"/>
+
+        <ScribanItem Include="*.mrt"/>
+    </ItemGroup>
 </Project>

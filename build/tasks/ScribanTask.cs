@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Microsoft.Build.Framework;
 
-// using Scriban;
+using Scriban;
 
 namespace build.tasks
 {
@@ -23,21 +25,21 @@ namespace build.tasks
 
         public bool Execute()
         {
-            BuildEngine.LogMessageEvent(new BuildMessageEventArgs("help", "helpkeyword", nameof(ScribanTask), MessageImportance.High));
+            BuildEngine.LogMessageEvent(new BuildMessageEventArgs($"{ScribanTemplate.ToString()}", "helpkeyword", nameof(ScribanTask), MessageImportance.High));
 
-            // try
-            // {
-            //     var template = Template.Parse(File.ReadAllText(ScribanTemplate.ToString()));
-            //     var result = template.Render(InputItems);
+            try
+            {
+                var template = Template.Parse(File.ReadAllText(ScribanTemplate.ToString()));
+                var result = template.Render(new { Items = InputItems } );
 
-            //     File.WriteAllText(OutputFile.ToString(), result);
-            // }
-            // catch(Exception e)
-            // {
-            //     BuildEngine.LogErrorEvent(new BuildErrorEventArgs("", "", "", 0, 0, 0, 0, e.Message, "", ""));
+                File.WriteAllText(OutputFile.ToString(), result);
+            }
+            catch(Exception e)
+            {
+                BuildEngine.LogErrorEvent(new BuildErrorEventArgs("", "", "SctribanTask.cs", 0, 0, 0, 0, e.Message, "", e.Source));
 
-            //     return false;
-            // }
+                return false;
+            }
 
             return true;
         }
