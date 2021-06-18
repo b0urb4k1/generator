@@ -10,12 +10,15 @@
     <UsingTask TaskName="build.tasks.ScribanTask" AssemblyFile="$(SolutionDir)build\bin\Debug\net5.0\build.dll"/>
     <UsingTask TaskName="build.tasks.ScribanTask2" AssemblyFile="$(SolutionDir)build\bin\Debug\net5.0\build.dll"/>
 
-    <Target Name="Generate" BeforeTargets="CoreCompile">
-        <PropertyGroup>
-            <OutputFileName>$(IntermediateOutputPath)test.g.cs</OutputFileName>
-        </PropertyGroup>
+    <PropertyGroup>
+        <OutputFileName>$(IntermediateOutputPath)test.g.cs</OutputFileName>
+        <ScribanInputItems>@(ScribanItem -> '$(ProjectDir)%(filename)%(extension)')</ScribanInputItems>
+        <ScribanTemplateLocation>@(ScribanTemplate -> '$(ProjectDir)%(filename)%(extension)')</ScribanTemplateLocation>
+    </PropertyGroup>
+
+    <Target Name="Generate" BeforeTargets="CoreCompile" Outputs="$(OutputFileName)" Inputs="@(ScribanInputItems);$(ScribanTemplateLocation)">
         <Message Text="Generate Code with Build.csproj" Importance="high"/>
-        <build.tasks.ScribanTask InputItems="@(ScribanItem -> '$(ProjectDir)%(filename)%(extension)')" ScribanTemplate="@(ScribanTemplate -> '$(ProjectDir)%(filename)%(extension)')" OutputFile="$(OutputFileName)"/>
+        <build.tasks.ScribanTask InputItems="$(ScribanInputItems)" ScribanTemplate="$(ScribanTemplateLocation)" OutputFile="$(OutputFileName)"/>
 		<ItemGroup>
 			<Compile Remove="$(OutputFileName)"/>
 			<Compile Include="$(OutputFileName)"/>
