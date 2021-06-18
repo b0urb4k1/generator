@@ -7,9 +7,6 @@
         </AssemblyAttribute> -->
     </PropertyGroup>
 
-    <!-- <UsingTask TaskName="build.tasks.ScribanTask" AssemblyFile="$(ProjectDir)bin\Debug\net5.0\build.dll"/>
-    <UsingTask TaskName="build.tasks.ScribanTask2" AssemblyFile="$(ProjectDir)bin\Debug\net5.0\build.dll"/> -->
-
     <UsingTask TaskName="build.tasks.ScribanTask" AssemblyFile="$(SolutionDir)build\bin\Debug\net5.0\build.dll"/>
     <UsingTask TaskName="build.tasks.ScribanTask2" AssemblyFile="$(SolutionDir)build\bin\Debug\net5.0\build.dll"/>
 
