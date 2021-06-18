@@ -11,7 +11,7 @@ namespace tests
         }
 
         [Test]
-        public void Test1()
+        public void test1()
         {
             foreach (var attribute in Assembly.GetExecutingAssembly().CustomAttributes)
                 TestContext.WriteLine(attribute.ToString());

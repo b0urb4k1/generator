@@ -7,10 +7,14 @@
         </AssemblyAttribute> -->
     </PropertyGroup>
 
-    <UsingTask TaskName="build.tasks.SimpleTask" AssemblyFile="$(SolutionDir)\build\bin\Debug\net5.0\build.dll"/>
+    <!-- <UsingTask TaskName="build.tasks.ScribanTask" AssemblyFile="$(ProjectDir)bin\Debug\net5.0\build.dll"/>
+    <UsingTask TaskName="build.tasks.ScribanTask2" AssemblyFile="$(ProjectDir)bin\Debug\net5.0\build.dll"/> -->
+
+    <UsingTask TaskName="build.tasks.ScribanTask" AssemblyFile="$(SolutionDir)build\bin\Debug\net5.0\build.dll"/>
+    <UsingTask TaskName="build.tasks.ScribanTask2" AssemblyFile="$(SolutionDir)build\bin\Debug\net5.0\build.dll"/>
 
     <Target Name="Generate" BeforeTargets="CoreCompile">
         <Message Text="Generate Code with Build.csproj" Importance="high"/>
-        <build.tasks.SimpleTask Parameter="parameter set from $(ProjectName).csproj targets file"/>
+        <build.tasks.ScribanTask InputItems="" ScribanTemplate="test" OutputFile="test"/>
     </Target>
 </Project>
