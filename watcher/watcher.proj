@@ -1,0 +1,12 @@
+<Project>
+    <Import Project="$(MSBuildExtensionsPath)\Microsoft.Common.targets" />
+
+    <ItemGroup>
+        <TestProjects Include="..\tests\**\*.csproj" />
+        <Watch Include="..\tests\**\*.scriban" />
+    </ItemGroup>
+
+    <Target Name="WatcherGenerate">
+        <MSBuild Targets="Generate" Projects="@(TestProjects)" />
+    </Target>
+</Project>
